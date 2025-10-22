@@ -17,11 +17,13 @@ const Customers = () => {
   ];
 
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Valued Customers</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-green-600 bg-clip-text text-transparent">
+            Our Valued Customers
+          </h2>
+          <p className="text-xl text-black/70 max-w-3xl mx-auto">
             Trusted by leading pharmaceutical companies across India
           </p>
         </div>
@@ -30,10 +32,11 @@ const Customers = () => {
           {customers.map((customer, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 p-6 bg-card rounded-xl shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1"
+              tabIndex={0}
+              className="flex items-center gap-4 p-6 bg-white/90 rounded-xl border border-green-50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-orange-200"
             >
-              <Building2 className="w-8 h-8 text-primary flex-shrink-0" />
-              <p className="font-medium">{customer}</p>
+              <Building2 className="w-8 h-8 text-green-600 flex-shrink-0" aria-hidden="true" />
+              <p className="font-medium text-slate-900">{customer}</p>
             </div>
           ))}
         </div>

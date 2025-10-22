@@ -34,18 +34,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      // changed: use solid white background (no blue) and keep subtle shadow when scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${isScrolled ? "shadow-md" : ""}`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection("hero")}>
             <img src={logo} alt="Vidhatha Life Sciences" className="h-12 w-auto" />
-            <div>
-              <h1 className="text-lg font-bold text-foreground">Vidhatha Life Sciences</h1>
-              <p className="text-xs text-muted-foreground">Pvt. Ltd.</p>
-            </div>
+
           </div>
 
           {/* Desktop Navigation */}
@@ -54,19 +50,21 @@ const Navbar = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-black hover:text-black/75 transition-colors font-medium"
               >
                 {link.name}
               </button>
             ))}
-            <Button onClick={() => scrollToSection("contact")}>Get in Touch</Button>
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="text-black bg-transparent border border-black/10 hover:bg-black/5"
+            >
+              Get in Touch
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+          <button className="md:hidden text-black" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -79,12 +77,12 @@ const Navbar = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-foreground hover:text-primary transition-colors font-medium text-left"
+                  className="text-black hover:text-black/75 transition-colors font-medium text-left"
                 >
                   {link.name}
                 </button>
               ))}
-              <Button onClick={() => scrollToSection("contact")} className="w-full">
+              <Button onClick={() => scrollToSection("contact")} className="w-full text-black bg-transparent border border-black/10 hover:bg-black/5">
                 Get in Touch
               </Button>
             </div>
